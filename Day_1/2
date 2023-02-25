@@ -1,0 +1,31 @@
+https://www.hackerrank.com/challenges/magic-square-forming/problem?isFullScreen=true
+
+Here bascially we are given a 3*3 matrix and we need to make the matrix a magic matrix. What is magic matrix ? so a magic matrix is where the sum of any row , column ,
+diagonal is equal and for every change we make the cost is oldvalue-newvalue and we need to work this problem with minimum cost. Here we simply made possible values 
+that sum equal in all possible ways as mentioned and use it as a standard and then get into the actual input matrix and find the difference of value of standard matrix
+and actual matrix as below code.
+To put it simply instead of checking sum of row or columns and taking as reference we simply made a rule and checking weather its followed or not.
+
+
+def formingMagicSquare(s):
+    squares = [ 
+    [[4, 3, 8], [9, 5, 1], [2, 7, 6]], 
+    [[2, 9, 4], [7, 5, 3], [6, 1, 8]], 
+    [[2, 7, 6], [9, 5, 1], [4, 3, 8]],
+    [[6, 7, 2], [1, 5, 9], [8, 3, 4]], 
+    [[4, 9, 2], [3, 5, 7], [8, 1, 6]], 
+    [[8, 3, 4], [1, 5, 9], [6, 7, 2]], 
+    [[8, 1, 6], [3, 5, 7], [4, 9, 2]],
+    [[6, 1, 8], [7, 5, 3], [2, 9, 4]], 
+    [[2, 7, 6], [9, 5, 1], [4, 3, 8]]
+    ]
+    costs=[]
+    for q in squares:
+        cost=0
+        for i in range(3):
+            for j in range(3):
+                cost+=abs(q[i][j]-s[i][j])
+        costs.append(cost)
+    return min(costs)
+
+Here s in above funnction is input matrix 3*3. And the squares matrix is predefined matrix with sum equal in every aspect as mentioned (row,column,diagonal)
